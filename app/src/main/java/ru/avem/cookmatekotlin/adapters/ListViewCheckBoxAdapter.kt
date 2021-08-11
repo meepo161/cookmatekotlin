@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.CheckBox
 import android.widget.TextView
 import ru.avem.cookmatekotlin.R
-import ru.avem.cookmatekotlin.data.CheckModel
+import ru.avem.cookmatekotlin.model.CheckModel
 import java.util.*
 
 class ListViewCheckBoxAdapter(private val dataSet: ArrayList<*>, mContext: Context) :

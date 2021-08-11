@@ -13,11 +13,10 @@ import ru.avem.cookmatekotlin.R
 import ru.avem.cookmatekotlin.adapters.ListViewCheckBoxAdapter
 import ru.avem.cookmatekotlin.data.IngredientsData
 import ru.avem.cookmatekotlin.model.CheckModel
-import ru.avem.cookmatekotlin.utils.Singleton.mapMeats
+import ru.avem.cookmatekotlin.utils.Singleton.mapVegetables
 import ru.avem.cookmatekotlin.viewmodel.SharedViewModel
 
-
-class MeatFragment : Fragment() {
+class VegetablesFragment : Fragment() {
 
     private var dataModel: ArrayList<CheckModel>? = null
     private lateinit var listView: ListView
@@ -25,8 +24,8 @@ class MeatFragment : Fragment() {
     private var viewModel: SharedViewModel = SharedViewModel()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        viewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
         super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -40,7 +39,7 @@ class MeatFragment : Fragment() {
         btnClear.setOnClickListener {
             dataModel!!.forEach {
                 it.checked = false
-                mapMeats[it.name ?: ""] = false
+                mapVegetables[it.name ?: ""] = false
             }
             adapter.notifyDataSetChanged()
         }
@@ -52,22 +51,22 @@ class MeatFragment : Fragment() {
     private fun initListView(view: View) {
         listView = view.findViewById(R.id.listView)
         dataModel = ArrayList()
-        if (mapMeats.isEmpty()) {
-            IngredientsData.meatIngredients.forEach {
+        if (mapVegetables.isEmpty()) {
+            IngredientsData.vegetablesIngredients.forEach {
                 dataModel!!.add(
                     CheckModel(
                         it,
                         false
                     )
                 )
-                mapMeats[it] = false
+                mapVegetables[it] = false
             }
         } else {
-            IngredientsData.meatIngredients.forEach {
+            IngredientsData.vegetablesIngredients.forEach {
                 dataModel!!.add(
                     CheckModel(
                         it,
-                        mapMeats[it] ?: false
+                        mapVegetables[it] ?: false
                     )
                 )
             }
@@ -78,7 +77,7 @@ class MeatFragment : Fragment() {
         listView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
             val dataModel: CheckModel = dataModel!![position]
             dataModel.checked = !dataModel.checked
-            mapMeats[dataModel.name ?: ""] = dataModel.checked
+            mapVegetables[dataModel.name ?: ""] = dataModel.checked
             adapter.notifyDataSetChanged()
         }
     }

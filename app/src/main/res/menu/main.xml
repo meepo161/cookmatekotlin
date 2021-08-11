@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/settings"
-        app:showAsAction="never" />
 
     <item
         android:id="@+id/action_about_us"
-        android:orderInCategory="100"
-        android:title="@string/about_us"
-        app:showAsAction="never" />
+        android:icon="@drawable/ic_baseline_info_24"
+        android:title="@string/info"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="@string/settings"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/next"
+        android:icon="@drawable/ic_baseline_navigate_next_24"
+        android:title="@string/go_to_recipes"
+        app:showAsAction="ifRoom" />
+
 </menu>

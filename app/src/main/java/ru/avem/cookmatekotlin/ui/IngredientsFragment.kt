@@ -1,5 +1,6 @@
 package ru.avem.cookmatekotlin.ui
 
+import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
 import ru.avem.cookmatekotlin.R
+import kotlin.coroutines.coroutineContext
 
 
 class IngredientsFragment : Fragment() {
@@ -44,7 +46,7 @@ class IngredientsFragment : Fragment() {
         override fun getItem(position: Int): Fragment {
             when (position) {
                 0 -> return MeatFragment()
-                1 -> return FishFragment()
+                1 -> return VegetablesFragment()
             }
             return MeatFragment()
         }
@@ -52,7 +54,7 @@ class IngredientsFragment : Fragment() {
         override fun getPageTitle(position: Int): CharSequence? {
             when (position) {
                 0 -> return "Мясо"
-                1 -> return "Рыба"
+                1 -> return "Овощи"
             }
             return null
         }

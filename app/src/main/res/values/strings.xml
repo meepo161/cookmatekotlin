@@ -69,9 +69,11 @@
     <string name="select_protocol">Выберите протокол</string>
     <string name="about_us">О нас</string>
     <string name="meat_tab">Мясо</string>
-    <string name="fish_tab">Рыба</string>
+    <string name="vegetables_tab">Овощи</string>
     <string name="ingredients">Ингредиенты</string>
     <string name="recipes">Рецепты</string>
     <string name="info">Информация</string>
     <string name="clear">Очистить</string>
+    <string name="go_to_recipes">К рецептам</string>
+    <string name="night_mode">Ночной режим</string>
 </resources>

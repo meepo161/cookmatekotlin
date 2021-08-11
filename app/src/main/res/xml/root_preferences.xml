@@ -1,43 +1,11 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory app:title="Отображаемые параметры">
+    <PreferenceCategory app:title="Интерфейс">
 
         <SwitchPreferenceCompat
-            app:icon="@drawable/ic_baseline_timeline_24"
-            app:key="tvRms"
-            app:title="@string/tvRms" />
-        <SwitchPreferenceCompat
-            app:icon="@drawable/ic_baseline_maximize_24"
-            app:key="tvAmp"
-            app:title="@string/tvAmp" />
-        <SwitchPreferenceCompat
-            app:icon="@drawable/ic_baseline_merge_type_24"
-            app:key="tvAvr"
-            app:title="@string/tvAvr" />
-        <SwitchPreferenceCompat
-            app:icon="@drawable/ic_baseline_waves_24"
-            app:key="tvFreq"
-            app:title="@string/tvFreq" />
-        <SwitchPreferenceCompat
-            app:icon="@drawable/ic_baseline_format_align_justify_24"
-            app:key="tvCoefficentAmp"
-            app:title="@string/tvCoefficentAmp" />
-        <SwitchPreferenceCompat
-            app:icon="@drawable/ic_baseline_functions_24"
-            app:key="tvCoefficentForm"
-            app:title="@string/tvCoefficentForm" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory app:title="@string/time_record">
-
-        <ListPreference
-            app:entries="@array/listTimesRecord"
-            app:entryValues="@array/listTimesRecord"
-            app:icon="@drawable/ic_baseline_timer_24"
-            app:key="timeRecord"
-            app:summary="Выберите из списка"
-            app:title="Запись, мин" />
+            app:icon="@drawable/ic_baseline_wb_sunny_24"
+            app:key="night_mode"
+            app:title="@string/night_mode" />
 
     </PreferenceCategory>
 
