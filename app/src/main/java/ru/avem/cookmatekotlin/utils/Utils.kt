@@ -1,48 +1,57 @@
-package ru.avem.cookmatekotlin.utils;
+package ru.avem.cookmatekotlin.utils
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+import android.R
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.util.Log
+import android.widget.ArrayAdapter
+import android.widget.Spinner
+import java.io.IOException
+import java.net.HttpURLConnection
+import java.net.URL
+import java.util.*
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.List;
-import java.util.Locale;
-
-public class Utils {
-    public static final Locale RU_LOCALE = new Locale("ru");
-
-    private Utils() {
-        throw new AssertionError();
+class Utils private constructor() {
+    init {
+        throw AssertionError()
     }
 
-    public static void setSpinnerAdapter(Context context, Spinner spinner, List<?> list) {
-        ArrayAdapter<?> arrayAdapter = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item,
-                list);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(arrayAdapter);
-    }
-
-    public static Bitmap getBitmapFromURL(String src) {
-        try {
-            URL url = new URL(src);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setDoInput(true);
-            connection.connect();
-            InputStream input = connection.getInputStream();
-            Bitmap myBitmap = BitmapFactory.decodeStream(input);
-            Log.e("Bitmap","returned");
-            return myBitmap;
-        } catch (IOException e) {
-            e.printStackTrace();
-            Log.e("Exception",e.getMessage());
-            return null;
+    companion object {
+        val RU_LOCALE = Locale("ru")
+        fun setSpinnerAdapter(context: Context?, spinner: Spinner, list: List<*>?) {
+            val arrayAdapter: ArrayAdapter<*> = ArrayAdapter<Any>(
+                context!!, R.layout.simple_spinner_item,
+                list!!
+            )
+            arrayAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
+            spinner.adapter = arrayAdapter
         }
-    }
 
+        fun getBitmapFromURL(src: String?): Bitmap? {
+            return try {
+                val url = URL(src)
+                val connection = url.openConnection() as HttpURLConnection
+                connection.doInput = true
+                connection.connect()
+                val input = connection.inputStream
+                val myBitmap = BitmapFactory.decodeStream(input)
+                Log.e("Bitmap", "returned")
+                myBitmap
+            } catch (e: IOException) {
+                e.printStackTrace()
+                Log.e("Exception", e.message!!)
+                null
+            }
+        }
+
+        fun String.toStringOrDefault(): String {
+            return try {
+                super.toString()
+            } catch (e: NullPointerException) {
+                ""
+            }
+        }
+
+    }
 }
