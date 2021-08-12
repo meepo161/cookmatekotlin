@@ -3,7 +3,6 @@ package ru.avem.cookmatekotlin.json
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Field
 import retrofit2.http.POST
 import ru.avem.cookmatekotlin.json.Url.Companion.BASE_URL
 import ru.avem.cookmatekotlin.json.Url.Companion.URL

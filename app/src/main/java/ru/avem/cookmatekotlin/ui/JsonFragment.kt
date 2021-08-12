@@ -41,7 +41,8 @@ class JsonFragment : Fragment() {
             var apiInterface = ApiInterface.create().getRecipes()
             apiInterface.enqueue(object : Callback<Recipes> {
                 override fun onResponse(call: Call<Recipes>, response: Response<Recipes>) {
-                    tvRequest.text = "name = ${response.body()!!.meals!![0].strMeal}"
+                    tvRequest.text = "${response.body()!!.meals!![0].strMeal}\n" +
+                            "${response.body()!!.meals!![0].strInstructions}"
                     Picasso.get().load("${response.body()!!.meals!![0].strMealThumb}")
                         .into(ivRequest)
                 }
