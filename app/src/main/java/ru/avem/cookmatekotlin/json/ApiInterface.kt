@@ -3,16 +3,16 @@ package ru.avem.cookmatekotlin.json
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
+import retrofit2.http.Field
+import retrofit2.http.POST
 import ru.avem.cookmatekotlin.json.Url.Companion.BASE_URL
 import ru.avem.cookmatekotlin.json.Url.Companion.URL
-import java.util.*
-import kotlin.reflect.jvm.internal.impl.load.kotlin.JvmType
+
 
 interface ApiInterface {
 
-    @GET(URL)
-    fun getRecipes() : Call<List<Recipes>>
+    @POST(URL)
+    fun getRecipes(): Call<Recipes>
 
     companion object {
         fun create() : ApiInterface {
