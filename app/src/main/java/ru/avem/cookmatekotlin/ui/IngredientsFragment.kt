@@ -40,13 +40,14 @@ class IngredientsFragment : Fragment() {
 
     private class SectionsPagerAdapter(fm: FragmentManager?) : FragmentPagerAdapter(fm!!) {
         override fun getCount(): Int {
-            return 2
+            return 3
         }
 
         override fun getItem(position: Int): Fragment {
             when (position) {
                 0 -> return MeatFragment()
                 1 -> return VegetablesFragment()
+                2 -> return JsonFragment()
             }
             return MeatFragment()
         }
@@ -55,6 +56,7 @@ class IngredientsFragment : Fragment() {
             when (position) {
                 0 -> return "Мясо"
                 1 -> return "Овощи"
+                2 -> return "Json"
             }
             return null
         }
